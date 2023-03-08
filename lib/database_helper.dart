@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:developer';
 import 'package:sqflite/sqflite.dart';
 import 'model.dart';
@@ -74,10 +75,17 @@ CREATE TABLE $_tableName (
   }
 
   //TODO SEARCH FROM DATABASE ***********************
-  searchFromDatabase(String input) async {
+  Future <List<User>> searchUsers (String input) async {
     Database db = await instance._database;
-    List<Map<String, dynamic>> response = await db.query(_tableName,
-        where: '$_columnUserName LIKE ?', whereArgs: ['$input%']);
+    final response = await db.query(_tableName,
+        columns: [
+          _columnId,
+          _columnUserName,
+          _columnEmail,
+        ],
+      where:'$_columnUserName LIKE ?',
+      whereArgs: ['%$input%']
+    );
     return response.map((e) => User.fromMap(e)).toList();
   }
 }

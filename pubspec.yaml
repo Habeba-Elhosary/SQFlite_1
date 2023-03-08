@@ -12,16 +12,22 @@ dependencies:
     sdk: flutter
 
 
-  cupertino_icons: ^1.0.2
-  sqflite: ^2.2.4+1
+  cupertino_icons: ^1.0.5
+  sqflite: ^2.2.5
   animation_search_bar: ^0.0.10
+  shared_preferences: ^2.0.18
+  provider: ^6.0.5
+  flutter_screenutil: ^5.6.1
+
+
+
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^2.0.0
+  flutter_lints: ^2.0.1
 
 flutter:
   uses-material-design: true
